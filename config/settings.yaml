@@ -1,0 +1,65 @@
+agent:
+  max_steps: 15
+  timeout: 120           # increased from 60s
+  retry_limit: 2
+  loop_detection_window: 3
+
+models:
+  provider: ollama
+  base_url: "http://localhost:11434"
+  default_model: "qwen2.5:7b"
+  temperature: 0.2
+  max_tokens: 1024       # reduced from 2048 — faster responses
+  stream: false
+  identity_name: "Arbiter"
+  forbidden_identity_words:
+    - "llama"
+    - "meta ai"
+    - "openai"
+    - "chatgpt"
+    - "alibaba"
+    - "alibaba cloud"
+    - "qwen"
+    - "mistral ai"
+    - "mixtral"
+    - "gemma"
+    - "google deepmind"
+    - "i am an ai assistant created by"
+    - "i'm an ai assistant created by"
+    - "i was created by"
+    - "i am created by"
+
+memory:
+  persist_path: "memory_db"
+  collection_name: "arbiter_knowledge"
+  embedding_model: "all-MiniLM-L6-v2"
+  conversation_store_file: "memory_store.json"
+  retrieval_k: 3          # reduced from 5 — faster retrieval
+  chunk_size: 500
+
+search:
+  max_results: 5
+
+tools:
+  papers_dir: "papers"
+  download_dir: "downloads"
+  screenshots_dir: "screenshots"
+  search_roots:
+    - "~"
+    - "~/Desktop"
+    - "~/Documents"
+    - "~/Downloads"
+  webpage_max_chars: 4000
+  run_python_timeout: 10
+  run_command_timeout: 30
+  search_max_results: 50
+
+logging:
+  log_dir: "logs"
+  log_file: "arbiter.log"
+  level: "INFO"
+
+system:
+  debug_mode: false
+  idle_threshold: 60
+  idle_cpu_threshold: 10
