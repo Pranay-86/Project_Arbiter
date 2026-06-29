@@ -1,0 +1,31 @@
+# Core
+requests
+pyyaml
+duckduckgo-search
+
+# Memory / embeddings
+chromadb
+sentence-transformers
+
+# Knowledge graph
+networkx
+
+# Document ingestion
+pymupdf
+
+# Web scraping
+beautifulsoup4
+
+# System monitoring
+psutil
+
+# GUI automation (screenshot, mouse, keyboard)
+pyautogui
+pillow
+
+# Clipboard
+pyperclip
+
+# AI models (optional - EmotionEngine)
+# transformers
+# torch
